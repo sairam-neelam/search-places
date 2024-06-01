@@ -1,0 +1,103 @@
+.search-places-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.places-table {
+  width: 100%;
+  font-size: 16px;
+}
+
+table,
+th {
+  border-bottom: 2px solid #000;
+  border-collapse: collapse;
+}
+
+tbody tr {
+  border-bottom: 2px solid rgb(222, 226, 230);
+  border-collapse: collapse;
+}
+
+th {
+  font-weight: 700;
+}
+
+td,
+th {
+  padding: 8px;
+}
+
+.search-input {
+  font-size: 12px;
+  border: none;
+  border-radius: 2px;
+  height: 24px;
+  padding: 4px;
+}
+
+.spinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: rgb(176, 176, 250);
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+  margin: 50px;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(206, 212, 218);
+  padding: 6px 12px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  width: 241px;
+  height: 38px;
+  font-size: 16px;
+  background-color: rgb(255, 255, 255);
+}
+
+.input-container .tab {
+  margin: 0;
+  padding: 3px;
+  border: 1px solid rgb(222, 226, 230);
+  border-radius: 4px;
+  color: rgb(88, 88, 89);
+  font-size: 12px;
+}
+
+.input-container:focus-within {
+  border-color: #7952b3;
+  box-shadow: 0 0 0 3px rgb(121 82 179 / 25%);
+}
+
+.input-disabled {
+  background-color: rgb(233, 236, 239);
+  pointer-events: none;
+}
+
+.input-disabled .search-input {
+  background-color: rgb(233, 236, 239);
+}
+
+input:focus,
+input:focus-visible {
+  outline: none;
+}
