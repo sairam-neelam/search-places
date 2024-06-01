@@ -11,7 +11,7 @@ const SearchPlaces = () => {
   const [searchInput, setSearchInput] = useState("");
   const [isLoading, setLoading] = useState(false);
   const debouncedSearchTerm = useDebounce(searchInput, 300);
-  const itemsPerPage = 5;
+  const [itemsPerPage, setItemsPerPage] = useState(3);
 
   const inputRef = useRef(null);
 
@@ -47,7 +47,7 @@ const SearchPlaces = () => {
         setLoading(false);
         console.error("Error fetching data:", error);
       });
-  }, [debouncedSearchTerm, currentPage]);
+  }, [debouncedSearchTerm, currentPage, itemsPerPage]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -55,6 +55,20 @@ const SearchPlaces = () => {
 
   const onChangeInput = (e) => {
     setSearchInput(e.target.value);
+  };
+
+  const onChangePageCount = (e) => {
+    let value = e.target.value;
+    if (value >= 1 || value <= 10) {
+      setItemsPerPage(e.target.value);
+    }
+  };
+
+  const validateCount = (e) => {
+    let value = e.target.value;
+    if (value < 1 || value > 10) {
+      alert("Try values between 1 to 10");
+    }
   };
 
   return (
@@ -99,11 +113,23 @@ const SearchPlaces = () => {
         <p>No Results Found</p>
       )}
 
-      <Pagination
-        totalItems={totalCount}
-        itemsPerPage={itemsPerPage}
-        onPageChange={handlePageChange}
-      />
+      <div className="pagination-container">
+        <Pagination
+          totalItems={totalCount}
+          itemsPerPage={itemsPerPage}
+          onPageChange={handlePageChange}
+        />
+        <input
+          className="item-count"
+          placeholder="Count"
+          type="number"
+          onBlur={onChangePageCount}
+          defaultValue={itemsPerPage}
+          onChange={validateCount}
+          max="10"
+          min="1"
+        />
+      </div>
     </div>
   );
 };
