@@ -20,3 +20,13 @@
 .active {
   border: 1px solid #1bc9f5;
 }
+
+@media (max-width: 600px) {
+  .pagination {
+    gap: 5px;
+  }
+  .page-item {
+    padding: 5px;
+    font-size: 12px;
+  }
+}

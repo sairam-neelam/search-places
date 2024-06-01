@@ -113,3 +113,10 @@ th {
   padding: 5px;
   width: 60px;
 }
+
+@media (max-width: 600px) {
+  .pagination-container {
+    flex-direction: column;
+    gap: 0;
+  }
+}

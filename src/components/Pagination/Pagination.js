@@ -84,7 +84,7 @@ const Pagination = ({ totalItems, itemsPerPage, onPageChange }) => {
       <ul className="pagination">
         <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
           <span className="page-link" onClick={handlePrev}>
-            Previous
+            Prev
           </span>
         </li>
         {renderPageNumbers()}
